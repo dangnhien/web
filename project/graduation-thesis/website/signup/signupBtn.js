@@ -22,7 +22,6 @@ function set_data(path, username, email, password) {
     })
 }
 
-
 function clear_notification_error_password() {
     document.getElementById('pass').innerHTML = '';
     document.getElementById('pass_repeat').innerHTML = '';
@@ -84,10 +83,6 @@ function clear_notification_error_email() {
 }
 
 
-function sign_up_btn() {
-    window.location.href = "./../login1/login-interface/index-login.html";
-}
-
 function get_pass() {
     return document.getElementById('password').value;
 }
@@ -110,6 +105,11 @@ function information_user_signup(name, email, password) {
 }
 
 
+function signup_Button() {
+    window.location.href = "./../login/login_interface/index.html";
+}
+
+
 document.getElementById("signup_btn").onclick = function () {
     var username = get_username();
     var email = get_email();
@@ -121,10 +121,13 @@ document.getElementById("signup_btn").onclick = function () {
 
 
     if (test_pass == 1 && test_user_name == 1) {
-        set_data('signup1',username, email, pass);
+        set_data('signup_information',username, email, pass);
 
         information_user_signup(username, email, pass);
-        setTimeout(sign_up_btn, 3000);
+
+        document.getElementById("inputs").reset();
+        
+        setTimeout(signup_Button, 2000);
 
         return;
     }
